@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Attach PDF",
+  "description": "Open a new gmail draft with a PDF attached.",
+  "version": "0.1",
+  "browser_action": {
+    "default_icon": "document-icon.png"
+  },
+	"icons": {
+		"128": "document-icon.png"
+	},
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*.pdf",
+        "file:///*.pdf"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "tabs"
+  ]
+}
